@@ -31,13 +31,14 @@ h1>span {
 
 footer {
     text-align: right;
+    height: 5vh;
 }
 
 
 /* UTILITIES */
 .container {
     width: 100vw;
-    height: 100vh;
+    height: 95vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,7 +77,8 @@ display: none;
     padding: 1rem 0;
     width: 20rem;
     text-align: center;
-    border: 0.1rem solid #56a5eb;
+    border: 0.15rem solid #56a5eb;
+    border-radius: 1rem;
     margin-bottom: 1rem;
     text-decoration: none;
     color: #56a5eb;
