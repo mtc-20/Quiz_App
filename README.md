@@ -3,8 +3,7 @@
 
 Here's the [link](https://www.youtube.com/watch?v=u98ROZjBWy8&list=PLDlWc9AfQBfZIkdVaOQXi1tizJeNJipEx) to the videos for those interested.
 
-For now, it just easy anime questions.
 
 ## FUTURE
-- [x] Allow choosing of categories or difficulty level
-- 
+- [x] Allow choosing of categories
+- [ ] Enable also True/False questions
