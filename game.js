@@ -6,6 +6,9 @@ const progressBarFull = document.getElementById('progress-bar-full');
 
 const loader = document.getElementById('loader');
 const game = document.getElementById('game');
+const categories = document.getElementById('categories');
+const categoryCont = document.getElementById('category-cont');
+console.log(categories.value)
 // console.log(choices);
 
 let currentQuestion = {};
@@ -29,33 +32,66 @@ let questions = [];
 //     console.error(err);
 // });
 
-fetch("https://opentdb.com/api.php?amount=10&category=31&difficulty=easy&type=multiple") //https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple
-.then(res => {
-    return res.json();
-})
-.then( loadedQuestions =>{
-    // console.log(loadedQuestions.results);
-    questions = loadedQuestions.results.map(loadedQuestion => {
-        const formattedQuestion = {
-            question: loadedQuestion.question
-        };
+// while(categories.value == 'none') {loader.classList.remove('hidden')}
 
-        const answerChoices = [...loadedQuestion.incorrect_answers];
-        formattedQuestion.answer = Math.floor(Math.random()*3) + 1;
-        answerChoices.splice(formattedQuestion.answer-1, 0, loadedQuestion.correct_answer);
+pickCategory = (e) => {
+    e.preventDefault();
+    switch (categories.value) {
+        case 'gk':
+            category = 10;
+            break;
 
-        answerChoices.forEach((choice, index) => {
-            formattedQuestion["choice"+(index+1)] = choice;
-        })
-        return formattedQuestion;
-    })
-    // questions = loadedQuestions;
+        case 'anime':
+            category = 31;
+            break;
+
+        case 'cs':
+            category = 18;
+            break;
+
+        case 'film':
+            category = 11;
+            break;
+
+        case 'tv':
+            category = 14;
+            break;
     
-    startGame();
-})
-.catch(err=> {
-    console.error(err);
-});
+        default:
+            break;
+    };
+   
+    categoryCont.classList.add('hidden')
+    loader.classList.remove('hidden')
+    fetch(`https://opentdb.com/api.php?amount=10&category=${category}&difficulty=easy&type=multiple`) //https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple
+    .then(res => {
+        return res.json();
+    })
+    .then( loadedQuestions =>{
+        // console.log(loadedQuestions.results);
+        questions = loadedQuestions.results.map(loadedQuestion => {
+            const formattedQuestion = {
+                question: loadedQuestion.question
+            };
+    
+            const answerChoices = [...loadedQuestion.incorrect_answers];
+            formattedQuestion.answer = Math.floor(Math.random()*3) + 1;
+            answerChoices.splice(formattedQuestion.answer-1, 0, loadedQuestion.correct_answer);
+    
+            answerChoices.forEach((choice, index) => {
+                formattedQuestion["choice"+(index+1)] = choice;
+            })
+            return formattedQuestion;
+        })
+        // questions = loadedQuestions;
+        
+        startGame();
+    })
+    .catch(err=> {
+        console.error(err);
+    });
+    
+}
 
 // CONSTANTS
 const CORRECT_BONUS = 10;

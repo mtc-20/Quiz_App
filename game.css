@@ -9,7 +9,9 @@
 .choice-prefix {
     background-color: rgba(86, 165, 235);
     padding: 1.5rem 2.5rem;
-    color: white;
+    /* color: white; */
+    color: #f8beee;
+    font-size: 1.5rem;
 }
 
 .choice-text {
@@ -52,13 +54,13 @@
 #progress-bar {
     width: 20rem;
     height: 4rem;
-    border: 0.3rem solid #56a5eb;
+    border: 0.3rem solid #3f90d8;
     margin-top: 1.5rem;
 }
 
 #progress-bar-full {
     height: 3.4rem;
-    background-color: #56a5eb;
+    background-color: #3f90d8;
     width: 0%;
 }
 
@@ -77,3 +79,41 @@
     0% {transform: rotate(0deg);}
     100% {transform: rotate(360deg);}
 }
+
+/* CATEGORY PICKER */
+#category-cont {
+    /* display: flex; */
+    flex-direction: column;
+    width: 75%;
+    height: 50%;
+    font-size: 2rem;
+    align-content: space-around;
+    margin-left: 2rem;
+
+}
+
+label {
+    margin-bottom: 1rem;
+}
+
+select {
+    background-color: #56a5eb;
+    color: #f8beee;
+    height: 4rem;
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+    /* margin: 1rem;
+    margin-left: 4rem; */
+}
+
+#pick-category-btn {
+    /* margin-left: 2rem; */
+    align-self: center;
+    width: 8rem;
+    height: 4rem;
+}
+
+select option { 
+    font-size: 1.6rem;
+}
+

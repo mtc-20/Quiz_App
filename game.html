@@ -11,7 +11,26 @@
     <body>
         
         <div class="container">
-            <div id="loader"></div>
+            <div id="category-cont">
+                <label for="categories">Pick a category</label>
+                <select name="categories" id="categories">
+                    <option value="none"> - - -</option>
+                    <option value="generalKnowledge">General Knowledge</option>
+                    <option value="anime">Anime & Manga</option>
+                    <option value="cs">Computer Science</option>
+                    <option value="film">Movies</option>
+                    <option value="tv">TV Shows</option>
+                </select>
+                <button 
+                        type="submit" 
+                        class="btn" 
+                        id="pick-category-btn"
+                        onclick="pickCategory(event)"
+                        
+                        >Select
+                    </button>
+            </div>
+            <div id="loader" class="hidden"></div>
             <div id="game" class="flex-center flex-column hidden">
                 <div id="hud">
                     <div id="hud-item">

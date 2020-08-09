@@ -9,7 +9,9 @@
     margin: 0;
     padding: 0;
     /* color: black; */
-    color: #333;
+    /* color: #333; */
+    color: purple;
+
 
 }
 
@@ -19,6 +21,7 @@ h1 {
     font-size: 5.4rem;
     color: #56a5eb;
     margin-bottom: 5rem;
+    text-align: center;
 }
 
 h1>span {
@@ -26,7 +29,9 @@ h1>span {
     font-weight: 500;
 }
 
-
+footer {
+    text-align: right;
+}
 
 
 /* UTILITIES */
