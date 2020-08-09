@@ -58,6 +58,7 @@ pickCategory = (e) => {
             break;
     
         default:
+            category=10;
             break;
     };
    
