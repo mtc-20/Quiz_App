@@ -7,6 +7,7 @@ const progressBarFull = document.getElementById('progress-bar-full');
 const loader = document.getElementById('loader');
 const game = document.getElementById('game');
 const categories = document.getElementById('categories');
+const levels = document.getElementById('levels')
 const categoryCont = document.getElementById('category-cont');
 console.log(categories.value)
 // console.log(choices);
@@ -16,6 +17,8 @@ let acceptAnswers = false;
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
+let amount = 20;
+let difficulty = 'easy';
 
 let questions = [];
 
@@ -36,6 +39,20 @@ let questions = [];
 
 pickCategory = (e) => {
     e.preventDefault();
+
+    switch (levels.value) {
+        case 'med':
+            difficulty = 'medium';
+            break;
+        case 'hard':
+            difficulty = 'hard';
+            break;
+    
+        default:
+            difficulty = 'easy'
+            break;
+    }
+
     switch (categories.value) {
         case 'gk':
             category = 10;
@@ -56,15 +73,26 @@ pickCategory = (e) => {
         case 'tv':
             category = 14;
             break;
+
+        case 'vehicles':
+            category = 28;
+            amount = 10;
+            break;
+            
+        case 'myth':
+            category = 20;
+            amount = 10;
+            break; 
     
         default:
             category=10;
+            amount = 20;
             break;
     };
    
     categoryCont.classList.add('hidden')
     loader.classList.remove('hidden')
-    fetch(`https://opentdb.com/api.php?amount=10&category=${category}&difficulty=easy&type=multiple`) //https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple
+    fetch(`https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=multiple`) //https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple
     .then(res => {
         return res.json();
     })
